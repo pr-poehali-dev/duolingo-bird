@@ -205,7 +205,9 @@ const Lesson = ({ courseId, courseTitle, courseIcon, onComplete, onClose }: Less
     setShowFeedback(true);
 
     if (correct) {
-      setScore(score + 10);
+      const earnedXP = 10;
+      setScore(score + earnedXP);
+      onComplete(earnedXP);
     } else {
       setHearts(Math.max(0, hearts - 1));
     }
