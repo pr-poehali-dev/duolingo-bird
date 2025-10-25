@@ -38,15 +38,15 @@ interface LeaderboardEntry {
 const Index = () => {
   const [selectedTab, setSelectedTab] = useState<'courses' | 'achievements' | 'leaderboard' | 'progress'>('courses');
   const [activeCourse, setActiveCourse] = useState<Course | null>(null);
-  const [userXP, setUserXP] = useState(2180);
+  const [userXP, setUserXP] = useState(0);
 
   const courses: Course[] = [
     {
       id: 1,
       title: 'Английский язык',
       description: 'Базовый курс для начинающих',
-      progress: 65,
-      level: 13,
+      progress: 0,
+      level: 1,
       totalLevels: 20,
       icon: '🇬🇧',
       color: 'bg-primary'
@@ -55,8 +55,8 @@ const Index = () => {
       id: 2,
       title: 'Математика',
       description: 'Алгебра и геометрия',
-      progress: 45,
-      level: 9,
+      progress: 0,
+      level: 1,
       totalLevels: 20,
       icon: '📐',
       color: 'bg-blue-500'
@@ -65,8 +65,8 @@ const Index = () => {
       id: 3,
       title: 'Физика',
       description: 'Механика и электричество',
-      progress: 30,
-      level: 6,
+      progress: 0,
+      level: 1,
       totalLevels: 20,
       icon: '⚡',
       color: 'bg-purple-500'
@@ -75,8 +75,8 @@ const Index = () => {
       id: 4,
       title: 'Испанский язык',
       description: 'Повседневные фразы и грамматика',
-      progress: 40,
-      level: 8,
+      progress: 0,
+      level: 1,
       totalLevels: 20,
       icon: '🇪🇸',
       color: 'bg-secondary'
@@ -85,8 +85,8 @@ const Index = () => {
       id: 5,
       title: 'Французский язык',
       description: 'Культура и язык Франции',
-      progress: 15,
-      level: 3,
+      progress: 0,
+      level: 1,
       totalLevels: 20,
       icon: '🇫🇷',
       color: 'bg-accent'
@@ -99,16 +99,14 @@ const Index = () => {
       title: 'Первые шаги',
       description: 'Завершите первый урок',
       icon: '🎯',
-      earned: true,
-      date: '15 окт 2024'
+      earned: false
     },
     {
       id: 2,
       title: 'Неделя силы',
       description: '7 дней подряд практики',
       icon: '🔥',
-      earned: true,
-      date: '18 окт 2024'
+      earned: false
     },
     {
       id: 3,
@@ -122,8 +120,7 @@ const Index = () => {
       title: 'Полиглот',
       description: 'Изучайте 3 языка одновременно',
       icon: '🌍',
-      earned: true,
-      date: '20 окт 2024'
+      earned: false
     },
     {
       id: 5,
@@ -137,26 +134,25 @@ const Index = () => {
       title: 'Скоростной',
       description: 'Завершите урок без ошибок',
       icon: '⚡',
-      earned: true,
-      date: '22 окт 2024'
+      earned: false
     }
   ];
 
   const leaderboard: LeaderboardEntry[] = [
     { id: 1, name: 'Анна Иванова', avatar: '👩', points: 2450, rank: 1, streak: 45 },
     { id: 2, name: 'Дмитрий Петров', avatar: '👨', points: 2350, rank: 2, streak: 38 },
-    { id: 3, name: 'Вы', avatar: '😊', points: 2180, rank: 3, streak: 21 },
-    { id: 4, name: 'Елена Смирнова', avatar: '👩‍🦰', points: 2050, rank: 4, streak: 30 },
-    { id: 5, name: 'Михаил Козлов', avatar: '👨‍💼', points: 1920, rank: 5, streak: 15 }
+    { id: 3, name: 'Елена Смирнова', avatar: '👩‍🦰', points: 2050, rank: 3, streak: 30 },
+    { id: 4, name: 'Михаил Козлов', avatar: '👨‍💼', points: 1920, rank: 4, streak: 15 },
+    { id: 5, name: 'Вы', avatar: '😊', points: 0, rank: 5, streak: 0 }
   ];
 
   const stats = {
     totalXP: userXP,
-    streak: 21,
-    lessonsCompleted: 87,
-    timeSpent: '42 ч',
+    streak: 0,
+    lessonsCompleted: 0,
+    timeSpent: '0 ч',
     weeklyGoal: 70,
-    weeklyProgress: 85
+    weeklyProgress: 0
   };
 
   const handleStartLesson = (course: Course) => {
