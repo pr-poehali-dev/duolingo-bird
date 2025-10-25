@@ -40,35 +40,35 @@ const Lesson = ({ courseId, courseTitle, courseIcon, onComplete, onClose }: Less
             id: 1,
             type: 'multiple-choice',
             question: 'Как переводится "Hello"?',
-            options: ['Привет', 'Пока', 'Спасибо', 'Пожалуйста'],
+            options: ['Пока', 'Привет', 'Спасибо', 'Пожалуйста'],
             correctAnswer: 'Привет'
           },
           {
             id: 2,
             type: 'translation',
             question: 'Переведите: "Good morning"',
-            options: ['Доброе утро', 'Добрый день', 'Добрый вечер', 'Спокойной ночи'],
+            options: ['Добрый день', 'Добрый вечер', 'Доброе утро', 'Спокойной ночи'],
             correctAnswer: 'Доброе утро'
           },
           {
             id: 3,
             type: 'multiple-choice',
             question: 'Выберите правильный перевод "Thank you"',
-            options: ['Извините', 'Спасибо', 'До свидания', 'Здравствуйте'],
+            options: ['Извините', 'До свидания', 'Здравствуйте', 'Спасибо'],
             correctAnswer: 'Спасибо'
           },
           {
             id: 4,
             type: 'translation',
             question: 'Как сказать "Goodbye"?',
-            options: ['До свидания', 'Привет', 'Как дела?', 'Пожалуйста'],
+            options: ['Привет', 'До свидания', 'Как дела?', 'Пожалуйста'],
             correctAnswer: 'До свидания'
           },
           {
             id: 5,
             type: 'multiple-choice',
             question: 'Что означает "Please"?',
-            options: ['Спасибо', 'Извините', 'Пожалуйста', 'Привет'],
+            options: ['Спасибо', 'Извините', 'Привет', 'Пожалуйста'],
             correctAnswer: 'Пожалуйста'
           }
         ];
@@ -78,35 +78,35 @@ const Lesson = ({ courseId, courseTitle, courseIcon, onComplete, onClose }: Less
             id: 1,
             type: 'multiple-choice',
             question: 'Чему равно 12 × 8?',
-            options: ['96', '84', '108', '72'],
+            options: ['84', '96', '108', '72'],
             correctAnswer: '96'
           },
           {
             id: 2,
             type: 'multiple-choice',
             question: 'Решите уравнение: 3x + 5 = 20',
-            options: ['x = 5', 'x = 7', 'x = 10', 'x = 15'],
+            options: ['x = 7', 'x = 10', 'x = 5', 'x = 15'],
             correctAnswer: 'x = 5'
           },
           {
             id: 3,
             type: 'multiple-choice',
             question: 'Площадь квадрата со стороной 7 см равна:',
-            options: ['49 см²', '28 см²', '14 см²', '56 см²'],
+            options: ['28 см²', '49 см²', '14 см²', '56 см²'],
             correctAnswer: '49 см²'
           },
           {
             id: 4,
             type: 'multiple-choice',
             question: 'Какой процент от 200 составляет 50?',
-            options: ['25%', '20%', '30%', '15%'],
+            options: ['20%', '30%', '25%', '15%'],
             correctAnswer: '25%'
           },
           {
             id: 5,
             type: 'multiple-choice',
             question: 'Периметр прямоугольника 5×3 см равен:',
-            options: ['16 см', '15 см', '12 см', '18 см'],
+            options: ['15 см', '12 см', '18 см', '16 см'],
             correctAnswer: '16 см'
           }
         ];
@@ -116,35 +116,35 @@ const Lesson = ({ courseId, courseTitle, courseIcon, onComplete, onClose }: Less
             id: 1,
             type: 'multiple-choice',
             question: 'Скорость света в вакууме равна:',
-            options: ['300 000 км/с', '150 000 км/с', '500 000 км/с', '200 000 км/с'],
+            options: ['150 000 км/с', '300 000 км/с', '500 000 км/с', '200 000 км/с'],
             correctAnswer: '300 000 км/с'
           },
           {
             id: 2,
             type: 'multiple-choice',
             question: 'Какая сила удерживает планеты на орбите?',
-            options: ['Гравитация', 'Электромагнитная', 'Ядерная', 'Трения'],
+            options: ['Электромагнитная', 'Ядерная', 'Гравитация', 'Трения'],
             correctAnswer: 'Гравитация'
           },
           {
             id: 3,
             type: 'multiple-choice',
             question: 'Единица измерения силы:',
-            options: ['Ньютон', 'Джоуль', 'Ватт', 'Паскаль'],
+            options: ['Джоуль', 'Ватт', 'Ньютон', 'Паскаль'],
             correctAnswer: 'Ньютон'
           },
           {
             id: 4,
             type: 'multiple-choice',
             question: 'При температуре 0°C вода:',
-            options: ['Замерзает', 'Кипит', 'Испаряется', 'Остается жидкой'],
+            options: ['Кипит', 'Замерзает', 'Испаряется', 'Остается жидкой'],
             correctAnswer: 'Замерзает'
           },
           {
             id: 5,
             type: 'multiple-choice',
             question: 'Какой закон описывает F = ma?',
-            options: ['Второй закон Ньютона', 'Первый закон Ньютона', 'Закон сохранения энергии', 'Закон Ома'],
+            options: ['Первый закон Ньютона', 'Закон сохранения энергии', 'Второй закон Ньютона', 'Закон Ома'],
             correctAnswer: 'Второй закон Ньютона'
           }
         ];
