@@ -32,43 +32,164 @@ const Lesson = ({ courseId, courseTitle, courseIcon, onComplete, onClose }: Less
   const [hearts, setHearts] = useState(3);
   const [showCompletion, setShowCompletion] = useState(false);
 
-  const questions: Question[] = [
-    {
-      id: 1,
-      type: 'multiple-choice',
-      question: 'Как переводится "Hello"?',
-      options: ['Привет', 'Пока', 'Спасибо', 'Пожалуйста'],
-      correctAnswer: 'Привет'
-    },
-    {
-      id: 2,
-      type: 'translation',
-      question: 'Переведите: "Good morning"',
-      options: ['Доброе утро', 'Добрый день', 'Добрый вечер', 'Спокойной ночи'],
-      correctAnswer: 'Доброе утро'
-    },
-    {
-      id: 3,
-      type: 'multiple-choice',
-      question: 'Выберите правильный перевод "Thank you"',
-      options: ['Извините', 'Спасибо', 'До свидания', 'Здравствуйте'],
-      correctAnswer: 'Спасибо'
-    },
-    {
-      id: 4,
-      type: 'translation',
-      question: 'Как сказать "Goodbye"?',
-      options: ['До свидания', 'Привет', 'Как дела?', 'Пожалуйста'],
-      correctAnswer: 'До свидания'
-    },
-    {
-      id: 5,
-      type: 'multiple-choice',
-      question: 'Что означает "Please"?',
-      options: ['Спасибо', 'Извините', 'Пожалуйста', 'Привет'],
-      correctAnswer: 'Пожалуйста'
+  const getQuestionsForCourse = (id: number): Question[] => {
+    switch (id) {
+      case 1: // Английский
+        return [
+          {
+            id: 1,
+            type: 'multiple-choice',
+            question: 'Как переводится "Hello"?',
+            options: ['Привет', 'Пока', 'Спасибо', 'Пожалуйста'],
+            correctAnswer: 'Привет'
+          },
+          {
+            id: 2,
+            type: 'translation',
+            question: 'Переведите: "Good morning"',
+            options: ['Доброе утро', 'Добрый день', 'Добрый вечер', 'Спокойной ночи'],
+            correctAnswer: 'Доброе утро'
+          },
+          {
+            id: 3,
+            type: 'multiple-choice',
+            question: 'Выберите правильный перевод "Thank you"',
+            options: ['Извините', 'Спасибо', 'До свидания', 'Здравствуйте'],
+            correctAnswer: 'Спасибо'
+          },
+          {
+            id: 4,
+            type: 'translation',
+            question: 'Как сказать "Goodbye"?',
+            options: ['До свидания', 'Привет', 'Как дела?', 'Пожалуйста'],
+            correctAnswer: 'До свидания'
+          },
+          {
+            id: 5,
+            type: 'multiple-choice',
+            question: 'Что означает "Please"?',
+            options: ['Спасибо', 'Извините', 'Пожалуйста', 'Привет'],
+            correctAnswer: 'Пожалуйста'
+          }
+        ];
+      case 2: // Математика
+        return [
+          {
+            id: 1,
+            type: 'multiple-choice',
+            question: 'Чему равно 12 × 8?',
+            options: ['96', '84', '108', '72'],
+            correctAnswer: '96'
+          },
+          {
+            id: 2,
+            type: 'multiple-choice',
+            question: 'Решите уравнение: 3x + 5 = 20',
+            options: ['x = 5', 'x = 7', 'x = 10', 'x = 15'],
+            correctAnswer: 'x = 5'
+          },
+          {
+            id: 3,
+            type: 'multiple-choice',
+            question: 'Площадь квадрата со стороной 7 см равна:',
+            options: ['49 см²', '28 см²', '14 см²', '56 см²'],
+            correctAnswer: '49 см²'
+          },
+          {
+            id: 4,
+            type: 'multiple-choice',
+            question: 'Какой процент от 200 составляет 50?',
+            options: ['25%', '20%', '30%', '15%'],
+            correctAnswer: '25%'
+          },
+          {
+            id: 5,
+            type: 'multiple-choice',
+            question: 'Периметр прямоугольника 5×3 см равен:',
+            options: ['16 см', '15 см', '12 см', '18 см'],
+            correctAnswer: '16 см'
+          }
+        ];
+      case 3: // Физика
+        return [
+          {
+            id: 1,
+            type: 'multiple-choice',
+            question: 'Скорость света в вакууме равна:',
+            options: ['300 000 км/с', '150 000 км/с', '500 000 км/с', '200 000 км/с'],
+            correctAnswer: '300 000 км/с'
+          },
+          {
+            id: 2,
+            type: 'multiple-choice',
+            question: 'Какая сила удерживает планеты на орбите?',
+            options: ['Гравитация', 'Электромагнитная', 'Ядерная', 'Трения'],
+            correctAnswer: 'Гравитация'
+          },
+          {
+            id: 3,
+            type: 'multiple-choice',
+            question: 'Единица измерения силы:',
+            options: ['Ньютон', 'Джоуль', 'Ватт', 'Паскаль'],
+            correctAnswer: 'Ньютон'
+          },
+          {
+            id: 4,
+            type: 'multiple-choice',
+            question: 'При температуре 0°C вода:',
+            options: ['Замерзает', 'Кипит', 'Испаряется', 'Остается жидкой'],
+            correctAnswer: 'Замерзает'
+          },
+          {
+            id: 5,
+            type: 'multiple-choice',
+            question: 'Какой закон описывает F = ma?',
+            options: ['Второй закон Ньютона', 'Первый закон Ньютона', 'Закон сохранения энергии', 'Закон Ома'],
+            correctAnswer: 'Второй закон Ньютона'
+          }
+        ];
+      default: // Другие языки
+        return [
+          {
+            id: 1,
+            type: 'multiple-choice',
+            question: 'Выберите правильный вариант',
+            options: ['Вариант А', 'Вариант Б', 'Вариант В', 'Вариант Г'],
+            correctAnswer: 'Вариант А'
+          },
+          {
+            id: 2,
+            type: 'translation',
+            question: 'Переведите фразу',
+            options: ['Перевод 1', 'Перевод 2', 'Перевод 3', 'Перевод 4'],
+            correctAnswer: 'Перевод 1'
+          },
+          {
+            id: 3,
+            type: 'multiple-choice',
+            question: 'Найдите правильный ответ',
+            options: ['Ответ 1', 'Ответ 2', 'Ответ 3', 'Ответ 4'],
+            correctAnswer: 'Ответ 1'
+          },
+          {
+            id: 4,
+            type: 'translation',
+            question: 'Выберите корректный перевод',
+            options: ['Перевод А', 'Перевод Б', 'Перевод В', 'Перевод Г'],
+            correctAnswer: 'Перевод А'
+          },
+          {
+            id: 5,
+            type: 'multiple-choice',
+            question: 'Укажите правильный вариант',
+            options: ['Вариант 1', 'Вариант 2', 'Вариант 3', 'Вариант 4'],
+            correctAnswer: 'Вариант 1'
+          }
+        ];
     }
-  ];
+  };
+
+  const questions = getQuestionsForCourse(courseId);
 
   const currentQuestion = questions[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;

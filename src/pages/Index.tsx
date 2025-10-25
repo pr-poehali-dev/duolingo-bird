@@ -53,6 +53,26 @@ const Index = () => {
     },
     {
       id: 2,
+      title: 'Математика',
+      description: 'Алгебра и геометрия',
+      progress: 45,
+      level: 9,
+      totalLevels: 20,
+      icon: '📐',
+      color: 'bg-blue-500'
+    },
+    {
+      id: 3,
+      title: 'Физика',
+      description: 'Механика и электричество',
+      progress: 30,
+      level: 6,
+      totalLevels: 20,
+      icon: '⚡',
+      color: 'bg-purple-500'
+    },
+    {
+      id: 4,
       title: 'Испанский язык',
       description: 'Повседневные фразы и грамматика',
       progress: 40,
@@ -62,7 +82,7 @@ const Index = () => {
       color: 'bg-secondary'
     },
     {
-      id: 3,
+      id: 5,
       title: 'Французский язык',
       description: 'Культура и язык Франции',
       progress: 15,
