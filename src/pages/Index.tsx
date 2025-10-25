@@ -4,6 +4,7 @@ import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import Lesson from '@/components/Lesson';
 
 interface Course {
   id: number;
@@ -36,6 +37,8 @@ interface LeaderboardEntry {
 
 const Index = () => {
   const [selectedTab, setSelectedTab] = useState<'courses' | 'achievements' | 'leaderboard' | 'progress'>('courses');
+  const [activeCourse, setActiveCourse] = useState<Course | null>(null);
+  const [userXP, setUserXP] = useState(2180);
 
   const courses: Course[] = [
     {
@@ -128,12 +131,25 @@ const Index = () => {
   ];
 
   const stats = {
-    totalXP: 2180,
+    totalXP: userXP,
     streak: 21,
     lessonsCompleted: 87,
     timeSpent: '42 ч',
     weeklyGoal: 70,
     weeklyProgress: 85
+  };
+
+  const handleStartLesson = (course: Course) => {
+    setActiveCourse(course);
+  };
+
+  const handleLessonComplete = (earnedXP: number) => {
+    setUserXP(userXP + earnedXP);
+    setActiveCourse(null);
+  };
+
+  const handleCloseLesson = () => {
+    setActiveCourse(null);
   };
 
   return (
@@ -237,7 +253,11 @@ const Index = () => {
                   <Badge variant="secondary" className="text-sm px-3 py-1">
                     Уровень {course.level}/{course.totalLevels}
                   </Badge>
-                  <Button size="sm" className="bg-gradient-to-r from-primary to-primary/80 hover:scale-105 transition-transform">
+                  <Button 
+                    size="sm" 
+                    className="bg-gradient-to-r from-primary to-primary/80 hover:scale-105 transition-transform"
+                    onClick={() => handleStartLesson(course)}
+                  >
                     Продолжить
                     <Icon name="ArrowRight" className="w-4 h-4 ml-1" />
                   </Button>
@@ -426,6 +446,16 @@ const Index = () => {
               </div>
             </Card>
           </div>
+        )}
+
+        {activeCourse && (
+          <Lesson
+            courseId={activeCourse.id}
+            courseTitle={activeCourse.title}
+            courseIcon={activeCourse.icon}
+            onComplete={handleLessonComplete}
+            onClose={handleCloseLesson}
+          />
         )}
       </div>
     </div>
